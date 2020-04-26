@@ -1,0 +1,33 @@
+
+
+Player Class
+	The class that both the user and dealer extend 
+	Player has cards 
+		List of cards 
+	Getter and setters
+	New Hand 	
+
+Deck Class 
+	Deck has 12 options 
+	Deal card method 
+	
+User Class 
+	Extends Player class 
+	Has chips 
+	starts with 2 cards 
+	can hit whenever 
+
+Dealer 
+	Extends player class
+	starts with 1 card 
+	must hit if less than 17
+	
+Game (BlackJack)
+	main class 
+	starts by instantiating user and dealer
+	calls each's newHand() that gives correct cards 
+	Displays users hand and dealers visible card 
+	asks for user to hit until they say stay 
+	call dealer's hit class 
+	once dealers class returns winner is established by game
+	
