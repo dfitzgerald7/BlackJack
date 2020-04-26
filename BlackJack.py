@@ -16,10 +16,7 @@ class BlackJack():
         user.newHand()
         dealer.newHand()
         dealerBool=True
-        print("The dealer is showing: ")
         dealer.printCards()
-
-        print("Your cards are: ")
         user.printCards()
         
         while not handOver:
@@ -32,7 +29,7 @@ class BlackJack():
 
             user.printCards()
             print("Your total : " + str(user.total))
-
+            print("=================================")
             if resp == "stay":
                 handOver= True
 
@@ -41,16 +38,15 @@ class BlackJack():
                 handOver=True
                 dealerBool=False
             
-
-            if resp == "exit":
+            if resp == "exit" or resp == "quit":
                 handOver=True
                 runBool=False
         if dealerBool:
-            print("Dealer's Total :" + str(dealer.total))
+            dealer.printCards()
             while dealer.shouldHit():
                 dealer.hit()
                 print("Dealer hit: " + str(dealer.getLast()))
-                sleep(2)
+                sleep(1)
             print("The dealer's final total is " + str(dealer.total))
             if dealer.didBust(): 
                 print("Dealer Busted")
@@ -58,10 +54,13 @@ class BlackJack():
             elif dealer.total < user.total:
                 print("You had a higher hand")
                 print("You Win")
+            elif dealer.total == user.total:
+                print("Push")
             else:
                 print("You lose")
         
-        if input("Play again? \n => ").lower() != "yes":
+        play_again = input("Play again? \n => ").lower()
+        if play_again != "yes" and play_again != "y":
             runBool=False
 
     print("Goodbye")
